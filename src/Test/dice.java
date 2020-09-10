@@ -20,8 +20,7 @@ public class dice {
 	}
 	
 	
-	public void aHaasIschKoiWie() {
-		System.out.println("bisch dir wirklich gwieﬂ?");
+	public void kickJuliansAss() {
+		
 	}
-
 }
