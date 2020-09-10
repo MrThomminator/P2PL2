@@ -12,7 +12,7 @@ public class dice {
 
 
 	public void getDice () {
-		System.out.println("Wuerfel");
+		System.out.println("secheckiger wuerfel");
 	}
 
 	public void doSomething() {
