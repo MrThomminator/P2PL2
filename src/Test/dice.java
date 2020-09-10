@@ -15,12 +15,19 @@ public class dice {
 		System.out.println("secheckiger wuerfel");
 	}
 
-	public void doSomething() {
-		System.out.println("Ois isch gwieﬂ, a acker isch koi wieﬂ");
-	}
 	
 	
 	public void kickJuliansAss() {
 		
 	}
+	
+	public void caesar () {
+		
+	}
+	
+	public void gringo () {
+		
+	}
+
 }
+
