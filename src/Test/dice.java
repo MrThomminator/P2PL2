@@ -8,5 +8,9 @@ public class dice {
 		System.out.println("sagsch du, du schwarzwuscht");
 
 	}
+	
+	public void getDice () {
+		System.out.println("Dice");
+	}
 
 }
