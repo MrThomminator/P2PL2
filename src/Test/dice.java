@@ -19,8 +19,8 @@ public class dice {
 		System.out.println("Ois isch gwieﬂ, a acker isch koi wieﬂ");
 	}
 	
-	public void doSomethingElse() {
-		System.out.println("und des isch au gwieﬂ, a acker isch koi wies.");
+	public void kickJuliansAss() {
+		System.out.println("Julians ass kicked");
 	}
 
 }
