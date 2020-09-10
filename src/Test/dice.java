@@ -22,5 +22,9 @@ public class dice {
 	public void kickJuliansAss() {
 		System.out.println("Julians ass kicked");
 	}
+	
+	public void aHaasIschKoiWie() {
+		System.out.println("bisch dir wirklich gwieﬂ?");
+	}
 
 }
