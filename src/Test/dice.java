@@ -8,5 +8,9 @@ public class dice {
 		System.out.println("sagsch du, du schwarzwuscht");
 
 	}
+	
+	public void doSomething() {
+		System.out.println("Ois isch gwieﬂ, a acker isch koi wieﬂ");
+	}
 
 }
