@@ -9,6 +9,12 @@ public class dice {
 
 	}
 	
+
+
+	public void getDice () {
+		System.out.println("Dice");
+	}
+
 	public void doSomething() {
 		System.out.println("Ois isch gwieﬂ, a acker isch koi wieﬂ");
 	}
