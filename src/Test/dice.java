@@ -9,8 +9,13 @@ public class dice {
 
 	}
 	
+<<<<<<< HEAD
 	public void getDice () {
 		System.out.println("Dice");
+=======
+	public void doSomething() {
+		System.out.println("Ois isch gwieß, an acker isch koi wieß");
+>>>>>>> branch 'master' of https://github.com/MrThomminator/P2PL2
 	}
 
 }
