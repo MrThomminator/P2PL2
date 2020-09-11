@@ -63,20 +63,59 @@ public class modifyGameController implements Initializable{
 	
 	Model model = Model.getInstance();
 	ToggleGroup tg = new ToggleGroup();
+	Genre temp = null;
+	OperatingSystem tempOS = null;
+	ConsoleSystem tempCS = null;
 	
 	
 	public void modifyGame(ActionEvent e) {
-		Game newGame;
-		if(consoleRB.isSelected()) {
+		
+		try {
+
+			for (Genre g : Genre.values()) {
+				if (g.getName().equals(genreCB.getSelectionModel().getSelectedItem())) {
+					temp = g;
+					System.out.println("Genre " + temp.getName());
+					break;
+				}
+			}
+
+			if (pcRB.isSelected()) {
+				ObservableList<String> OSlist = FXCollections.observableArrayList(OperatingSystem.MS.getName(),
+				OperatingSystem.LINUX.getName(), OperatingSystem.MAC.getName());
+				osCB.getItems().addAll(OSlist);
+				releaseTF.visibleProperty().set(true);
+				requirementsLabel.visibleProperty().set(true);
+				for (OperatingSystem osTemp : OperatingSystem.values()) {
+					if (osTemp.getName().equals(osCB.getSelectionModel().getSelectedItem())) {
+						tempOS = osTemp;
+					}
+				}
+
+				model.createGame(titleTF.getText(), temp, Integer.valueOf(releaseTF.getText()), completedCHB.isSelected(), tempOS,
+						requirementsTF.getText());
+			} 
 			
-		}else if(pcRB.isSelected()) {
 			
-		}else if() {
-			
+			else if (consoleRB.isSelected()) {
+				
+				model.createGame(titleTF.getText(), temp, Integer.valueOf(releaseTF.getText()), completedCHB.isSelected(), tempCS);
+
+			} else if (mobileRB.isSelected()) {
+				
+
+				model.createGame(titleTF.getText(), temp, Integer.valueOf(releaseTF.getText()), completedCHB.isSelected(), tempOS);
+
+			}
+
+		} catch (NumberFormatException e1) {
+			errLabel.setText("Sie haben ein flasches Zeichen eingegeben.");
+		} catch (NullPointerException e2) {
+			errLabel.setText("Sie haben vergessen ein Feld auszufüllen");
 		}
 		
 		
-		
+		model.getGames().remove(tempGame);
 		
 	
 		
@@ -96,6 +135,7 @@ public class modifyGameController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		tempGame = model.getGameToModify();
 		ObservableList<String> genresCollection = FXCollections.observableArrayList(Genre.ACTION.getName(),
 				Genre.ACTION_ADVENTURE.getName(), Genre.RPG.getName(), Genre.SIMULATION.getName(),
 				Genre.SPORT.getName(), Genre.STRATEGY.getName());
@@ -114,7 +154,8 @@ public class modifyGameController implements Initializable{
 		mobileRB.setToggleGroup(tg);
 		
 		if(tempGame instanceof MobileGame) {
-			
+		
+			MobileGame mGame = (MobileGame) tempGame;
 			osCB.getSelectionModel().clearSelection();
 			
 			mobileRB.setSelected(true);
@@ -126,13 +167,20 @@ public class modifyGameController implements Initializable{
 			ObservableList<String> OSlist = FXCollections.observableArrayList(OperatingSystem.ANDROID.getName(),
 					OperatingSystem.IOS.getName());
 			osCB.getItems().addAll(OSlist);
-			osCB.getSelectionModel().select(((MobileGame) tempGame).getOperatingSystem().getName());
+	
+			for(OperatingSystem os : OperatingSystem.values()) {
+				if(os.getName().equals(mGame.getOperatingSystem().getName())) {
+					osCB.getSelectionModel().select(os.getName());
+				}
+			}
 		
 			
 		}else
 			
 			
 			if(tempGame instanceof ConsoleGame) {
+			
+				ConsoleGame cGame = (ConsoleGame) tempGame;
 				osCB.getSelectionModel().clearSelection();
 				
 				consoleRB.setSelected(true);
@@ -145,7 +193,13 @@ public class modifyGameController implements Initializable{
 						ConsoleSystem.Switch.getShortName(), ConsoleSystem.XONE.getShortName());
 
 				osCB.getItems().addAll(OSlist);
-				osCB.getSelectionModel().select(((MobileGame) tempGame).getOperatingSystem().getName());
+				
+				for(ConsoleSystem s : ConsoleSystem.values()) {
+					if(s.getName().equals(cGame.getConsoleSystem().getName())) {
+						osCB.getSelectionModel().select(s.getName());
+					}
+				}
+		
 			
 				
 			
@@ -154,6 +208,8 @@ public class modifyGameController implements Initializable{
 			
 			
 			if(tempGame instanceof PcGame) {
+		
+				PcGame pGame = (PcGame) tempGame;
 				osCB.getSelectionModel().clearSelection();
 				pcRB.setSelected(true);
 				ObservableList<String> OSlist = FXCollections.observableArrayList(OperatingSystem.MS.getName(),
@@ -162,19 +218,24 @@ public class modifyGameController implements Initializable{
 						requirementsTF.visibleProperty().set(true);
 						requirementsLabel.visibleProperty().set(true);
 						
-				releaseTF.setText(((PcGame) tempGame).getSystemSpecification());
+						for(OperatingSystem os : OperatingSystem.values()) {
+							if(os.getName().equals(pGame.getOperatingSystem().getName())) {
+								osCB.getSelectionModel().select(os.getName());
+							}
+						}
+				
+						
+						requirementsTF.setText(pGame.getSystemSpecification());
 			}
 			
 		
 		
-		tempGame = model.getGameToModify();
 		
 		titleTF.setText(tempGame.getTitle());
 		releaseTF.setText(String.valueOf(tempGame.getReleasedate()));
 		completedCHB.setSelected(tempGame.getIsCompleted());
 		
-		
-		
+	
 	}
 	
 
