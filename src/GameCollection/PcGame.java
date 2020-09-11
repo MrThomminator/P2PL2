@@ -2,7 +2,7 @@ package GameCollection;
 
 import java.io.Serializable;
 
-public class MobileGame extends Game implements Serializable{
+public class PcGame extends Game implements Serializable{
 
 	/*
 	 * Attribute
@@ -10,14 +10,16 @@ public class MobileGame extends Game implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	private OperatingSystem operatingSystem;
+	private String systemSpecification;
 	
 	/*
 	 * Methoden
 	 */
 	
-	public MobileGame(String title, Genre genre, int releasedate, boolean isCompleted, OperatingSystem operatingSystem) {
+	public PcGame(String title, Genre genre, int releasedate, boolean isCompleted, OperatingSystem operatingSystem, String systemSpecification) {
 		super(title, genre, releasedate, isCompleted);
 		this.operatingSystem = operatingSystem;
+		this.systemSpecification = systemSpecification;
 	}
 
 	public OperatingSystem getOperatingSystem() {
@@ -28,6 +30,14 @@ public class MobileGame extends Game implements Serializable{
 		this.operatingSystem = operatingSystem;
 	}
 
+	public String getSystemSpecification() {
+		return systemSpecification;
+	}
+
+	public void setSystemSpecification(String systemSpecification) {
+		this.systemSpecification = systemSpecification;
+	}
 	
 	
+
 }

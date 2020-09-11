@@ -1,6 +1,7 @@
 package GameCollection;
 
 import java.io.Serializable;
+
 public class ConsoleGame extends Game implements Serializable {
 
 	/*
