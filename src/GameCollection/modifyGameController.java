@@ -107,6 +107,8 @@ public class modifyGameController implements Initializable{
 			
 			
 			if(tempGame instanceof ConsoleGame) {
+				
+				
 			
 		}else 
 			
