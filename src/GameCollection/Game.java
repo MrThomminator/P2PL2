@@ -13,8 +13,13 @@ public class Game implements Serializable {
 	private Genre genre;
 	private int releasedate;
 	private boolean isPlayed;
+
+	/*
+	 * Methoden
+	 */
 	
-	
-	
-	
+	public Game (String title, Genre genre, int releasedate, boolean isPlayed) {
+		this.title = title;
+		this.genre = genre;
+	}
 }
