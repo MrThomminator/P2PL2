@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar layoutY="14.0" prefHeight="25.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Menü">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Speichern" />
+                  <MenuItem mnemonicParsing="false" text="Alle Spiele löschen" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TableView layoutY="39.0" prefHeight="313.0" prefWidth="600.0">
+        <columns>
+          <TableColumn prefWidth="137.0" text="Titel" />
+          <TableColumn minWidth="0.0" prefWidth="134.0" text="Genre" />
+            <TableColumn prefWidth="76.0" text="Jahr" />
+            <TableColumn prefWidth="125.0" text="System" />
+            <TableColumn prefWidth="126.0" text="durchgespielt" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="Neues Spiel anlegen" />
+                  <MenuItem mnemonicParsing="false" text="Spiel löschen" />
+                  <MenuItem mnemonicParsing="false" text="Spiel bearbeiten" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+      <Button layoutX="397.0" layoutY="353.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="203.0" text="Ausgewähltes Spiel entfernen" />
+      <Button layoutY="353.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="203.0" text="Neues Spiel anlegen" />
+   </children>
+</Pane>
