@@ -14,11 +14,20 @@ public class Main extends Application{
 
 	}
 
+	
+	/**
+	 * Die init-Methode initalisierung die Objekte, die in der Datei gameslist.txt gepeichert wurden, 
+	 * dazu ruft sie die nötige Methode im Model auf.
+	 */
+	
 	@Override
 	public void init() throws Exception {
-		
-//		super.init();
+		Model.getInstance().openList();
 	}
+	
+	/**
+	 * Die Startmethode öffnet beim Start die Oberfläche MyGamesview.fxml und setzt ein Icon für die Stage.
+	 */
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -26,10 +35,10 @@ public class Main extends Application{
 		new FXMLLoader();
 		Parent root = FXMLLoader.load(getClass().getResource("myGamesView.fxml"));
 		Scene scene = new Scene(root);
-		primaryStage.setTitle("Melissas, Julians und Thomas Spieleliste");
+		primaryStage.setTitle("Spieleliste von Melissa, Julian und Thomas");
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		//primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("./Images/ApplicationIcon.png")));
+		primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/ApplicationIcon.png")));
 	
 	}
 	

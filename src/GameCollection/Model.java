@@ -11,15 +11,15 @@ import java.util.ArrayList;
 public class Model {
 	private static Model instance;
 	
-	ArrayList<Game> games = new ArrayList<>();
-	Game gameToModify;
+	private ArrayList<Game> games = new ArrayList<>();
+	private Game gameToModify;
 	
 	private Model() {
 
 	}
 	
 	
-	File file = new File ("src/Files/gameslist.txt");
+	private File file = new File ("src/Files/gameslist.txt");
 	
 //	public void createGame(String title, Genre genre, int releasedate, boolean isCompleted) {
 //		games.add(new Game(title, genre, releasedate, isCompleted));
@@ -28,6 +28,19 @@ public class Model {
 //		}
 //	}
 //	
+	/**
+	 * 
+	 * @Class Model
+	 * @author Melissa, Julian, Thomas
+	 * 
+	 */
+	
+	
+	/*
+	 * für der Erstellen eines Game-Objekts werden mehrere Übergeladene Methoden benötigt, da bei der Erstllung der Benutzer verschiedene Datentypen erstellt, je nach Eintrag in die gamelist. 
+	 * Die Spiele werden in einer ArrayList verwaltet. 
+	 */
+	
 	public void createGame(String title, Genre genre, int releasedate, boolean isCompleted, OperatingSystem os, String systemRequirements) {
 		games.add(new PcGame(title, genre, releasedate, isCompleted, os, systemRequirements));
 		for(Game game : games) {
@@ -49,6 +62,9 @@ public class Model {
 		}
 	}	
 	
+	/*
+	 * Singleton
+	 */
 	
 	public static Model getInstance() {
 		if (instance == null) {
@@ -71,6 +87,10 @@ public class Model {
 	 * Serialisierungsbereich / Datei speichern, Datei einlesen.
 	 */
 	
+	/*
+	 * Die Methode save öffnet einen FileOutputSteam, übergibt die dazugehörige File dem ObjectOutputStream, welcher dann die Arraylist mit den
+	 * vorhandenen Einträgen als Bytestrom in die gameslist.txt schreibt. Streams werden mit try-with-resourcen automatisch geschlossen.
+	 */
 	public void save(){
 		if(file != null) {
 			try(FileOutputStream fos = new FileOutputStream(file); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
@@ -85,6 +105,11 @@ public class Model {
 
 	}
 	
+	
+	/*
+	 * Die openList()-Methode wird von der init()-Methode in der Startklasse aufgerufen, worduch die Spieleliste gameslist.txt initalisiert wird.
+	 * Eingelesen wir der zuvor erstelle Bytestrom der save-Methode. Streams werden automatisch geschlossen (try-with-ressources)
+	 */
 	public void openList() throws ClassNotFoundException {
 		games.clear();
 		File inputFile = new File("src/Files/gameslist.txt");		

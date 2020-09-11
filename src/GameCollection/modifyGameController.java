@@ -25,49 +25,59 @@ import javafx.stage.Stage;
 public class modifyGameController implements Initializable{
 
 	@FXML
-	Label msgLabel;
+	private Label msgLabel;
 	@FXML
-	Label errLabel;
+	private Label errLabel;
 	@FXML
-	TextField titleTF;
+	private TextField titleTF;
 	@FXML
-	TextField releaseTF;
+	private TextField releaseTF;
 	@FXML
-	ComboBox<String> genreCB;
+	private ComboBox<String> genreCB;
 	@FXML
-	RadioButton consoleRB;
+	private RadioButton consoleRB;
 	@FXML
-	RadioButton pcRB;
+	private RadioButton pcRB;
 	@FXML
-	RadioButton mobileRB;
+	private RadioButton mobileRB;
 	@FXML
-	ComboBox<String> osCB;
+	private ComboBox<String> osCB;
 	@FXML
-	TextField requirementsTF;
+	private TextField requirementsTF;
 	@FXML
-	Label systemOSLabel;
+	private Label systemOSLabel;
 	@FXML
-	Label requirementsLabel;
+	private Label requirementsLabel;
 	@FXML
-	Button newGameButton;
+	private Button newGameButton;
 	@FXML
-	Button cancelButton;
+	private Button cancelButton;
 
 	@FXML
-	CheckBox completedCHB;
+	private CheckBox completedCHB;
 	
 	@FXML
-	Button modifyGameButton;
-	Game tempGame;
+	private Button modifyGameButton;
+	private Game tempGame;
 	
 	
-	Model model = Model.getInstance();
-	ToggleGroup tg = new ToggleGroup();
-	Genre temp = null;
-	OperatingSystem tempOS = null;
-	ConsoleSystem tempCS = null;
+	private Model model = Model.getInstance();
+	private ToggleGroup tg = new ToggleGroup();
+	private Genre temp = null;
+	private OperatingSystem tempOS = null;
+	private ConsoleSystem tempCS = null;
+	
+	/**
+	 * @Class ModifyGameController
+	 * @author Melissa, Julian, Thomas
+	 */
 	
 	
+	/*
+	 * Anhand des ausgewählten Radiobuttons wird ein neues Objekt erstellt, welches tendentiell ein neues Objekt anlegt.
+	 * Das "Alte" Game-Objekt, welches zum bearbeiten ausgewählt wurde, wird gelöscht. (Das neue ersetzt das alte).
+	 * 
+	 */
 	public void modifyGame(ActionEvent e) {
 		
 		try {
@@ -121,6 +131,9 @@ public class modifyGameController implements Initializable{
 		
 	}
 	
+	/*
+	 * Führt zurück zu der Main-Gui, wo die Game-Objekte aufgelistet sind.
+	 */
 	public void cancel() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("MyGamesView.fxml"));
 		Scene scene = new Scene(root);
@@ -132,7 +145,11 @@ public class modifyGameController implements Initializable{
 	
 	
 	
-
+	/**
+	 * ließt das Game-Objekt ein, welches zu bearbeiten gilt. Alle Standardwerte die für alle Games gelten können so eingelesen werden.
+	 * Für Games-spezifische Einträge sowie die visable-Eigenschaften werden erst nach einer Überprüfung und Umwandlung (Downcast) in die GUI initalisiert.
+	 * Nach dem Downcast wird noch in einer Foreach-Schleife geprüft, welcher Wert des jeweiligen Objekts gesetzt ist, um dies als Selektieren Wert der Combobox zu setzen.
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		tempGame = model.getGameToModify();
@@ -154,9 +171,9 @@ public class modifyGameController implements Initializable{
 		mobileRB.setToggleGroup(tg);
 		
 		if(tempGame instanceof MobileGame) {
-		
+			osCB.getItems().clear();
 			MobileGame mGame = (MobileGame) tempGame;
-			osCB.getSelectionModel().clearSelection();
+			//osCB.getSelectionModel().clearSelection();
 			
 			mobileRB.setSelected(true);
 			
@@ -166,11 +183,12 @@ public class modifyGameController implements Initializable{
 			
 			ObservableList<String> OSlist = FXCollections.observableArrayList(OperatingSystem.ANDROID.getName(),
 					OperatingSystem.IOS.getName());
+			
 			osCB.getItems().addAll(OSlist);
 	
-			for(OperatingSystem os : OperatingSystem.values()) {
-				if(os.getName().equals(mGame.getOperatingSystem().getName())) {
-					osCB.getSelectionModel().select(os.getName());
+			for(OperatingSystem mos : OperatingSystem.values()) {
+				if(mos.getName().equals(mGame.getOperatingSystem().getName())) {
+					osCB.getSelectionModel().select(mos.getName());
 				}
 			}
 		
@@ -195,8 +213,8 @@ public class modifyGameController implements Initializable{
 				osCB.getItems().addAll(OSlist);
 				
 				for(ConsoleSystem s : ConsoleSystem.values()) {
-					if(s.getName().equals(cGame.getConsoleSystem().getName())) {
-						osCB.getSelectionModel().select(s.getName());
+					if(s.getShortName().equals(cGame.getConsoleSystem().getShortName())) {
+						osCB.getSelectionModel().select(s.getShortName());
 					}
 				}
 		
@@ -208,9 +226,9 @@ public class modifyGameController implements Initializable{
 			
 			
 			if(tempGame instanceof PcGame) {
-		
+		osCB.getItems().clear();
 				PcGame pGame = (PcGame) tempGame;
-				osCB.getSelectionModel().clearSelection();
+			//	osCB.getSelectionModel().clearSelection();
 				pcRB.setSelected(true);
 				ObservableList<String> OSlist = FXCollections.observableArrayList(OperatingSystem.MS.getName(),
 						OperatingSystem.LINUX.getName(), OperatingSystem.MAC.getName());

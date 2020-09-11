@@ -17,45 +17,50 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 public class NewGameController implements Initializable {
 
 	@FXML
-	Label MsgLabel;
+	private Label MsgLabel;
 	@FXML
-	Label errLabel;
+	private Label errLabel;
 	@FXML
-	TextField titleTF;
+	private TextField titleTF;
 	@FXML
-	TextField releaseTF;
+	private TextField releaseTF;
 	@FXML
-	ComboBox<String> genreCB;
+	private ComboBox<String> genreCB;
 	@FXML
-	RadioButton consoleRB;
+	private RadioButton consoleRB;
 	@FXML
-	RadioButton pcRB;
+	private RadioButton pcRB;
 	@FXML
-	RadioButton mobileRB;
+	private RadioButton mobileRB;
 	@FXML
-	ComboBox<String> osCB;
+	private ComboBox<String> osCB;
 	@FXML
-	TextField requirementsTF;
+	private TextField requirementsTF;
 	@FXML
-	Label systemOSLabel;
+	private Label systemOSLabel;
 	@FXML
-	Label requirementsLabel;
+	private Label requirementsLabel;
 	@FXML
-	Button newGameButton;
+	private Button newGameButton;
 	@FXML
-	Button cancelButton;
-	Model model = Model.getInstance();
-	ToggleGroup tg = new ToggleGroup();
-	Genre temp = null;
-	OperatingSystem tempOS = null;
-	ConsoleSystem tempCS = null;
+	private Button cancelButton;
+	private Model model = Model.getInstance();
+	private ToggleGroup tg = new ToggleGroup();
+	private Genre temp = null;
+	private OperatingSystem tempOS = null;
+	private ConsoleSystem tempCS = null;
+
+	/**
+	 * Handhand der Eingabe wird überprüft, welche Objekte der Game-Unterklassen
+	 * erzeugt werden. Mit dieser Information wird die entsprechende Überladene
+	 * Methode im Model ausgewählt, die Werte eingelesen und übergeben.
+	 */
 
 	public void createNewGame() {
 
@@ -71,7 +76,7 @@ public class NewGameController implements Initializable {
 
 			if (pcRB.isSelected()) {
 				ObservableList<String> OSlist = FXCollections.observableArrayList(OperatingSystem.MS.getName(),
-				OperatingSystem.LINUX.getName(), OperatingSystem.MAC.getName());
+						OperatingSystem.LINUX.getName(), OperatingSystem.MAC.getName());
 				osCB.getItems().addAll(OSlist);
 				releaseTF.visibleProperty().set(true);
 				requirementsLabel.visibleProperty().set(true);
@@ -83,15 +88,13 @@ public class NewGameController implements Initializable {
 
 				model.createGame(titleTF.getText(), temp, Integer.valueOf(releaseTF.getText()), false, tempOS,
 						requirementsTF.getText());
-			} 
-			
-			
+			}
+
 			else if (consoleRB.isSelected()) {
-				
+
 				model.createGame(titleTF.getText(), temp, Integer.valueOf(releaseTF.getText()), false, tempCS);
 
 			} else if (mobileRB.isSelected()) {
-				
 
 				model.createGame(titleTF.getText(), temp, Integer.valueOf(releaseTF.getText()), false, tempOS);
 
@@ -105,6 +108,9 @@ public class NewGameController implements Initializable {
 
 	}
 
+	/*
+	 * Szenenwechsel. Führt zurück zu der Main-Gui.
+	 */
 	public void cancel() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("MyGamesView.fxml"));
 		Scene scene = new Scene(root);
@@ -114,25 +120,34 @@ public class NewGameController implements Initializable {
 
 	}
 
+	/*
+	 * Bei Klick auf den jeweiligen Radio-Button, werden die entsprechenden Einträge
+	 * die die ComboBox geschrieben. Die visibale-Eigenschaften für weitere
+	 * Informationen des PC-Spiels werden auf true gesetzt.
+	 * 
+	 */
 	public void pc(ActionEvent e) {
 		osCB.getSelectionModel().clearSelection();
 		ObservableList<String> OSlist = FXCollections.observableArrayList(OperatingSystem.MS.getName(),
 				OperatingSystem.LINUX.getName(), OperatingSystem.MAC.getName());
-				osCB.getItems().addAll(OSlist);
-				requirementsTF.visibleProperty().set(true);
-				requirementsLabel.visibleProperty().set(true);
-				for (OperatingSystem osTemp : OperatingSystem.values()) {
-					if (osTemp.getName().equals(osCB.getSelectionModel().getSelectedItem())) {
-						tempOS = osTemp;
-					}
-				}
+		osCB.getItems().addAll(OSlist);
+		requirementsTF.visibleProperty().set(true);
+		requirementsLabel.visibleProperty().set(true);
+		for (OperatingSystem osTemp : OperatingSystem.values()) {
+			if (osTemp.getName().equals(osCB.getSelectionModel().getSelectedItem())) {
+				tempOS = osTemp;
+			}
+		}
 	}
-	
+
+	/*Bei Klick auf den jeweiligen Radio-Button, werden die entsprechenden Einträge die die ComboBox geschrieben.
+	 * 
+	 */
 	public void console(ActionEvent e) {
 		osCB.getSelectionModel().clearSelection();
 		requirementsTF.visibleProperty().set(false);
 		requirementsLabel.visibleProperty().set(false);
-		
+
 		ObservableList<String> OSlist = FXCollections.observableArrayList(ConsoleSystem.PS4.getShortName(),
 				ConsoleSystem.Switch.getShortName(), ConsoleSystem.XONE.getShortName());
 
@@ -143,12 +158,12 @@ public class NewGameController implements Initializable {
 			}
 		}
 	}
-
-
-
+/*
+ * Bei Klick auf den jeweiligen Radio-Button, werden die entsprechenden Einträge die die ComboBox geschrieben.
+ */
 	public void mobile(ActionEvent e) {
 		requirementsTF.visibleProperty().set(false);
-		requirementsLabel.visibleProperty().set(false);		
+		requirementsLabel.visibleProperty().set(false);
 		osCB.getSelectionModel().clearSelection();
 		ObservableList<String> OSlist = FXCollections.observableArrayList(OperatingSystem.ANDROID.getName(),
 				OperatingSystem.IOS.getName());
@@ -159,20 +174,12 @@ public class NewGameController implements Initializable {
 			}
 		}
 	}
-	
-	
-	
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-
+	/* 
+	 * Bevor die Oberfläche angezeigt wird, werden die Radio-Buttons gruppiert, sodass nur einer ausgewählt werden kann.
+	 * Die ComboBox für das Genre wird mit Werten befüllt. 
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<String> genresCollection = FXCollections.observableArrayList(Genre.ACTION.getName(),

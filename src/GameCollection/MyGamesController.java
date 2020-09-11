@@ -28,7 +28,7 @@ import javafx.util.Callback;
 public class MyGamesController implements Initializable{
 
 	@FXML
-	TableView<Game> gamesTable;
+	private TableView<Game> gamesTable;
 	
  	@FXML
 	private Pane myGamesViewPane;
@@ -56,13 +56,15 @@ public class MyGamesController implements Initializable{
 	
 
 	@FXML
-	Button removeSelectedButton;
+	private Button removeSelectedButton;
 	@FXML
-	Button goToNewGameButton;
+	private Button goToNewGameButton;
 	
-	Model model = Model.getInstance();
+	private Model model = Model.getInstance();
 	
-	
+	/*
+	 * Wechsel zur der View um ein Spiel hinzuzufügen.
+	 */
 	public void goToNewGame(ActionEvent e) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("NewGameView.fxml"));
 		Scene scene = new Scene(root);
@@ -71,6 +73,10 @@ public class MyGamesController implements Initializable{
 		stage.show();
 	}
 	
+	
+	/*
+	 * Die Methode des Kontextmenüs "Eintrag löschen" führt diese Methode aus und löscht den ausgewählten EIntrag aus der Tabelle und der ArrayList im Model, wo alle Games verwaltet werden.
+	 */
 	public void removeSelectedItem(ActionEvent e) {
 		ObservableList<Game> selectedRows = gamesTable.getSelectionModel().getSelectedItems();
 		ArrayList<Game> rows = new ArrayList<>(selectedRows);
@@ -80,7 +86,9 @@ public class MyGamesController implements Initializable{
 		
 	}
 	
-	
+	/*
+	 * Wechselt zu der Oberfläche, in der Einträge angepasst werden können.
+	 */
 	public void goToModifyGame(ActionEvent e) throws IOException {
 		model.setGameToModify(gamesTable.getSelectionModel().getSelectedItem());
 		Parent root = FXMLLoader.load(getClass().getResource("modifyGameView.fxml"));
@@ -91,7 +99,9 @@ public class MyGamesController implements Initializable{
 	}
 	
 	
-	
+	/*
+	 * Führt die Methode save() im Model aus und speichert die Listeneinträge (Games-Objekte) als ArrayList-Bytestrom in die gameslist.txt
+	 */
 	public void saveList(ActionEvent e) {
 		model.save();
 	}
@@ -101,7 +111,9 @@ public class MyGamesController implements Initializable{
 	
 	
 	
-	
+	/*
+	 * Löscht alle Tabelleneinträge und die ArrayList zur verwaltung aller Games-Objekte im Model.
+	 */
 	
 	public void deleteAllGames(ActionEvent e) {
 		
@@ -110,6 +122,10 @@ public class MyGamesController implements Initializable{
 		gamesTable.refresh();
 	}
 
+	
+	/*
+	 * Definiert die Check-Box Controls in der Gui und liest die Games-Objekte ein, die in der ArrayList im Model gespeichert sind.
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	
