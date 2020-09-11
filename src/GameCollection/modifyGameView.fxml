@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="404.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="14.0" layoutY="41.0" prefHeight="32.0" prefWidth="53.0" text="Titel">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="titelTF" layoutX="202.0" layoutY="46.0" />
+      <Label layoutX="14.0" layoutY="105.0" prefHeight="35.0" prefWidth="77.0" text="Genre">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="163.0" prefHeight="35.0" prefWidth="192.0" text="Erscheinungsjahr">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="releaseTF" layoutX="202.0" layoutY="168.0" />
+      <ComboBox fx:id="genreCB" layoutX="201.0" layoutY="110.0" prefWidth="150.0" promptText="auswählen..." />
+      <Label layoutX="14.0" layoutY="238.0" prefHeight="35.0" prefWidth="192.0" text="System">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="consoleRB" layoutX="189.0" layoutY="220.0" mnemonicParsing="false" text="Konsolenspiel" />
+      <RadioButton fx:id="pcRB" layoutX="189.0" layoutY="247.0" mnemonicParsing="false" text="PC-Spiel" />
+      <RadioButton fx:id="mobileRB" layoutX="189.0" layoutY="277.0" mnemonicParsing="false" text="Mobile Game" />
+      <ComboBox fx:id="osCB" layoutX="201.0" layoutY="329.0" prefWidth="150.0" promptText="auswählen..." />
+      <Label layoutX="14.0" layoutY="324.0" prefHeight="35.0" prefWidth="192.0" text="Betriebssystem" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="379.0" prefHeight="35.0" prefWidth="259.0" text="Systemanforderungen:" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="requirementsTF" layoutX="14.0" layoutY="414.0" prefHeight="25.0" prefWidth="375.0" />
+      <Button fx:id="modifyGame" layoutX="14.0" layoutY="473.0" mnemonicParsing="false" onAction="#createNewGame" prefHeight="59.0" prefWidth="150.0" text="Änderungen speichern" />
+      <Button fx:id="cancelButton" layoutX="242.0" layoutY="473.0" mnemonicParsing="false" onAction="#cancel" prefHeight="59.0" prefWidth="150.0" text="Abbrechen" />
+   </children>
+</Pane>
