@@ -12,17 +12,17 @@ public class Game implements Serializable {
 	private String title;
 	private Genre genre;
 	private int releasedate;
-	private boolean isPlayed;
+	private boolean isCompleted;
 
 	/*
 	 * Methoden
 	 */
 	
-	public Game (String title, Genre genre, int releasedate, boolean isPlayed) {
+	public Game (String title, Genre genre, int releasedate, boolean isCompleted) {
 		this.title = title;
 		this.genre = genre;
 		this.releasedate = releasedate;
-		this.isPlayed = isPlayed;
+		this.isCompleted = isCompleted;
 	}
 
 	/*
@@ -53,12 +53,12 @@ public class Game implements Serializable {
 		this.releasedate = releasedate;
 	}
 
-	public boolean isPlayed() {
-		return isPlayed;
+	public boolean getIsCompleted() {
+		return isCompleted;
 	}
 
-	public void setPlayed(boolean isPlayed) {
-		this.isPlayed = isPlayed;
+	public void setIsCompleted(boolean isCompleted) {
+		this.isCompleted = isCompleted;
 	}
 	
 	
