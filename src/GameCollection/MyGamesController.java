@@ -86,7 +86,7 @@ public class MyGamesController implements Initializable{
 	
 	
 	public void saveList(ActionEvent e) {
-		
+		model.save();
 	}
 	
 	

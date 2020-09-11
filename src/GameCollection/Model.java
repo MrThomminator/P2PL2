@@ -15,7 +15,7 @@ public class Model {
 	}
 	
 	
-	File file = new File("list.txt");
+	File file = new File ("src/Files/list.txt");
 	
 //	public void createGame(String title, Genre genre, int releasedate, boolean isCompleted) {
 //		games.add(new Game(title, genre, releasedate, isCompleted));
@@ -58,7 +58,7 @@ public class Model {
 		
 	}
 	
-	public void deleteAllGames() {
+	public void deleteAllGames(){
 		games.clear();
 		save();
 	}
@@ -73,6 +73,7 @@ public class Model {
 		}else {
 			System.out.println("kein File vorhanden");
 		}
+
 	}
 	
 	
