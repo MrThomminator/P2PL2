@@ -3,7 +3,7 @@ package GameCollection;
 public enum Genre {
 
 	/*
-	 * enum Auswahl
+	 * enum Auswahl 
 	 */
 	
 	ACTION("Action"), ACTION_ADVENTURE("Action Adventure"), RPG("RPG"), SPORTS("Sport"), STRATEGY ("Strategie"), SIMULATION ("Simulation");
