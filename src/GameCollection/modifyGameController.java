@@ -66,8 +66,19 @@ public class modifyGameController implements Initializable{
 	
 	
 	public void modifyGame(ActionEvent e) {
+		Game newGame;
+		if(consoleRB.isSelected()) {
 			
+		}else if(pcRB.isSelected()) {
+			
+		}else if() {
+			
+		}
 		
+		
+		
+		
+	
 		
 	}
 	
