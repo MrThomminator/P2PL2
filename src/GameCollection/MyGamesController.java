@@ -2,10 +2,12 @@ package GameCollection;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -70,18 +72,23 @@ public class MyGamesController implements Initializable{
 	}
 	
 	public void removeSelectedItem(ActionEvent e) {
+		ObservableList<Game> selectedRows = gamesTable.getSelectionModel().getSelectedItems();
+		ArrayList<Game> rows = new ArrayList<>(selectedRows);
+		rows.forEach(row -> model.getGames().remove(row));
+		rows.forEach(row -> gamesTable.getItems().remove(row));
+		
 		
 	}
 	
 	
 	public void goToModifyGame(ActionEvent e) throws IOException {
+		model.setGameToModify(gamesTable.getSelectionModel().getSelectedItem());
 		Parent root = FXMLLoader.load(getClass().getResource("modifyGameView.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) goToNewGameButton.getScene().getWindow();
 		stage.setScene(scene);
 		stage.show();
 	}
-	
 	
 	
 	
@@ -99,6 +106,7 @@ public class MyGamesController implements Initializable{
 	public void deleteAllGames(ActionEvent e) {
 		
 		gamesTable.getItems().clear();
+		model.getGames().clear();
 		gamesTable.refresh();
 	}
 

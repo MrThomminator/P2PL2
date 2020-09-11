@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:controller="GameCollection.modifyGameView.fxml" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="404.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="404.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameCollection.modifyGameController">
    <children>
       <Label layoutX="14.0" layoutY="41.0" prefHeight="32.0" prefWidth="53.0" text="Titel">
          <font>
@@ -39,19 +39,21 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="rquirementsLabel" layoutX="15.0" layoutY="453.0" prefHeight="35.0" prefWidth="259.0" text="Systemanforderungen:" wrapText="true">
+      <Label fx:id="requirementsLabel" layoutX="14.0" layoutY="417.0" prefHeight="35.0" prefWidth="259.0" text="Systemanforderungen:" visible="false" wrapText="true">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="requirementsTF" layoutX="15.0" layoutY="488.0" prefHeight="25.0" prefWidth="375.0" />
-      <Button fx:id="modifyGame" layoutX="16.0" layoutY="529.0" mnemonicParsing="false" onAction="#createNewGame" prefHeight="59.0" prefWidth="150.0" text="Änderungen speichern" />
+      <TextField fx:id="requirementsTF" layoutX="15.0" layoutY="452.0" prefHeight="25.0" prefWidth="375.0" visible="false" />
+      <Button fx:id="modifyGameButton" layoutX="16.0" layoutY="529.0" mnemonicParsing="false" onAction="#modifyGame" prefHeight="59.0" prefWidth="150.0" text="Änderungen speichern" />
       <Button fx:id="cancelButton" layoutX="235.0" layoutY="529.0" mnemonicParsing="false" onAction="#cancel" prefHeight="59.0" prefWidth="150.0" text="Abbrechen" />
-      <Label layoutX="14.0" layoutY="401.0" prefHeight="35.0" prefWidth="192.0" text="Durchgespielt?" wrapText="true">
+      <Label layoutX="15.0" layoutY="371.0" prefHeight="35.0" prefWidth="192.0" text="Durchgespielt?" wrapText="true">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <CheckBox fx:id="completedCHB" layoutX="200.0" layoutY="406.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="133.0" />
+      <CheckBox fx:id="completedCHB" layoutX="201.0" layoutY="376.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="133.0" />
+      <Label fx:id="errLabel" layoutX="16.0" layoutY="489.0" prefHeight="25.0" prefWidth="375.0" textFill="RED" />
+      <Label fx:id="msgLabel" layoutX="15.0" layoutY="489.0" prefHeight="25.0" prefWidth="375.0" textFill="#0d8639" />
    </children>
 </Pane>
