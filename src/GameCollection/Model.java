@@ -9,6 +9,7 @@ public class Model {
 	private static Model instance;
 	
 	ArrayList<Game> games = new ArrayList<>();
+	Game gameToModify;
 	
 	private Model() {
 
@@ -85,6 +86,14 @@ public class Model {
 
 	public void setGames(ArrayList<Game> games) {
 		this.games = games;
+	}
+
+	public Game getGameToModify() {
+		return gameToModify;
+	}
+
+	public void setGameToModify(Game gameToModify) {
+		this.gameToModify = gameToModify;
 	}
 	
 	
