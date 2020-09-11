@@ -16,7 +16,7 @@ public class Model {
 	}
 	
 	
-	File file = new File ("src/Files/list.txt");
+	File file = new File ("src/Files/gameslist.txt");
 	
 //	public void createGame(String title, Genre genre, int releasedate, boolean isCompleted) {
 //		games.add(new Game(title, genre, releasedate, isCompleted));
