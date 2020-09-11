@@ -26,7 +26,7 @@
          </TableColumn>
           <TableColumn fx:id="genreColumn" minWidth="0.0" prefWidth="134.0" text="Genre">
             <cellValueFactory>
-						<PropertyValueFactory property="genre" />
+						<PropertyValueFactory property="name" />
 			</cellValueFactory>    
           </TableColumn>
             <TableColumn fx:id="releaseColumn" prefWidth="76.0" text="Jahr">

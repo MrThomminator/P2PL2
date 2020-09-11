@@ -6,7 +6,7 @@ public enum Genre {
 	 * enum Auswahl 
 	 */
 	
-	ACTION("Action"), ACTION_ADVENTURE("Action Adventure"), RPG("RPG"), SPORTS("Sport"), STRATEGY ("Strategie"), SIMULATION ("Simulation");
+	ACTION("Action"), ACTION_ADVENTURE("Action Adventure"), RPG("RPG"), SPORT("Sport"), STRATEGY("Strategie"), SIMULATION("Simulation");
 	
 	/*
 	 * Attribute

@@ -12,7 +12,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="titelTF" layoutX="202.0" layoutY="46.0" />
+      <TextField fx:id="titleTF" layoutX="202.0" layoutY="46.0" />
       <Label layoutX="14.0" layoutY="105.0" prefHeight="35.0" prefWidth="77.0" text="Genre">
          <font>
             <Font size="24.0" />
@@ -30,9 +30,9 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <RadioButton fx:id="consoleRB" layoutX="189.0" layoutY="220.0" mnemonicParsing="false" text="Konsolenspiel" />
-      <RadioButton fx:id="pcRB" layoutX="189.0" layoutY="247.0" mnemonicParsing="false" text="PC-Spiel" />
-      <RadioButton fx:id="mobileRB" layoutX="189.0" layoutY="277.0" mnemonicParsing="false" text="Mobile Game" />
+      <RadioButton onAction="#console" fx:id="consoleRB" layoutX="189.0" layoutY="220.0" mnemonicParsing="false" text="Konsolenspiel" />
+      <RadioButton onAction="#pc" fx:id="pcRB" layoutX="189.0" layoutY="247.0" mnemonicParsing="false" text="PC-Spiel" />
+      <RadioButton onAction="#mobile" fx:id="mobileRB" layoutX="189.0" layoutY="277.0" mnemonicParsing="false" text="Mobile Game" />
       <ComboBox fx:id="osCB" editable="true" layoutX="201.0" layoutY="329.0" prefWidth="150.0" promptText="auswählen..." />
       <Label fx:id="systemOSLabel" layoutX="14.0" layoutY="324.0" prefHeight="35.0" prefWidth="192.0" text="Betriebssystem" wrapText="true">
          <font>
@@ -47,5 +47,7 @@
       <TextField fx:id="requirementsTF" layoutX="14.0" layoutY="414.0" prefHeight="25.0" prefWidth="375.0" visible="false" />
       <Button fx:id="newGameButton" layoutX="14.0" layoutY="473.0" mnemonicParsing="false" onAction="#createNewGame" prefHeight="59.0" prefWidth="150.0" text="Neues Spiel hinzufügen" />
       <Button fx:id="cancelButton" layoutX="242.0" layoutY="473.0" mnemonicParsing="false" onAction="#cancel" prefHeight="59.0" prefWidth="150.0" text="Abbrechen" />
+      <Label fx:id="MsgLabel" layoutX="14.0" layoutY="439.0" prefHeight="25.0" prefWidth="375.0" textFill="#127529" />
+      <Label fx:id="errLabel" layoutX="19.0" layoutY="439.0" prefHeight="25.0" prefWidth="375.0" textFill="RED" />
    </children>
 </Pane>
