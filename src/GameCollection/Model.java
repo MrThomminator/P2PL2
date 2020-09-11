@@ -1,7 +1,10 @@
 package GameCollection;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
@@ -64,6 +67,10 @@ public class Model {
 		save();
 	}
 	
+	/*
+	 * Serialisierungsbereich / Datei speichern, Datei einlesen.
+	 */
+	
 	public void save(){
 		if(file != null) {
 			try(FileOutputStream fos = new FileOutputStream(file); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
@@ -76,6 +83,17 @@ public class Model {
 			System.out.println("kein File vorhanden");
 		}
 
+	}
+	
+	public void openList() throws ClassNotFoundException {
+		games.clear();
+		File inputFile = new File("src/Files/gameslist.txt");		
+	
+		try(FileInputStream fis = new FileInputStream(file); ObjectInputStream ois = new ObjectInputStream(fis)) {
+			games = (ArrayList<Game>) ois.readObject();
+		} catch (IOException g) {
+			g.printStackTrace();
+		}
 	}
 	
 	
