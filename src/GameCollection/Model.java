@@ -70,6 +70,7 @@ public class Model {
 				oos.writeObject(games);
 			} catch (Exception e) {
 				System.err.println("Methode \"saveFile\" im Model hat nicht ");
+				e.printStackTrace();
 			}
 		}else {
 			System.out.println("kein File vorhanden");
