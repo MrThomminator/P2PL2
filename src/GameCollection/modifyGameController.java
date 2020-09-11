@@ -186,11 +186,11 @@ public class modifyGameController implements Initializable{
 			
 			osCB.getItems().addAll(OSlist);
 	
-			for(OperatingSystem mos : OperatingSystem.values()) {
-				if(mos.getName().equals(mGame.getOperatingSystem().getName())) {
-					osCB.getSelectionModel().select(mos.getName());
-				}
-			}
+//			for(OperatingSystem mos : OperatingSystem.values()) {
+//				if(mos.getName().equals(mGame.getOperatingSystem().getName())) {
+//					osCB.getSelectionModel().select(mos.getName());
+//				}
+//			}
 		
 			
 		}else
@@ -212,13 +212,13 @@ public class modifyGameController implements Initializable{
 
 				osCB.getItems().addAll(OSlist);
 				
-				for(ConsoleSystem s : ConsoleSystem.values()) {
-					if(s.getShortName().equals(cGame.getConsoleSystem().getShortName())) {
-						osCB.getSelectionModel().select(s.getShortName());
-					}
-				}
-		
-			
+//				for(ConsoleSystem s : ConsoleSystem.values()) {
+//					if(s.getShortName().equals(cGame.getConsoleSystem().getShortName())) {
+//						osCB.getSelectionModel().select(s.getShortName());
+//					}
+//				}
+//		
+//			
 				
 			
 		}else 
