@@ -17,7 +17,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TableView layoutY="39.0" prefHeight="313.0" prefWidth="600.0">
+      <TableView fx:id="gamesTable" layoutY="39.0" prefHeight="313.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="titleColumn" prefWidth="137.0" text="Titel">
           		<cellValueFactory>
