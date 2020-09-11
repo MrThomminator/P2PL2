@@ -6,7 +6,7 @@ public class ConsoleGame extends Game {
 	 * Attribute
 	 */
 	
-	private consoleSystem;
+	private ConsoleSystem consoleSystem;
 	
 	/*
 	 * Methoden

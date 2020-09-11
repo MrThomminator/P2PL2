@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application{
@@ -28,7 +29,7 @@ public class Main extends Application{
 		primaryStage.setTitle("Melissas, Julians und Thomas Spieleliste");
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		//primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("laubbaumicon.jpg")));
+		//primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("./Images/ApplicationIcon.png")));
 	
 	}
 	
