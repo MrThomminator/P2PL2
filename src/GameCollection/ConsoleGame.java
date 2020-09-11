@@ -7,10 +7,7 @@ public class ConsoleGame extends Game implements Serializable {
 	 * Attribute
 	 */
 	
-<<<<<<< HEAD
-=======
 	private static final long serialVersionUID = 1L;
->>>>>>> branch 'master' of https://github.com/MrThomminator/P2PL2
 	private ConsoleSystem consoleSystem;
 	
 	/*
