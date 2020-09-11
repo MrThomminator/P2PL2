@@ -74,15 +74,27 @@ public class MyGamesController implements Initializable{
 	}
 	
 	
-	public void goToModifyGame(ActionEvent e) {
-		
+	public void goToModifyGame(ActionEvent e) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("modifyGameView.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) goToNewGameButton.getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
 	}
+	
 	
 	
 	
 	public void saveList(ActionEvent e) {
 		
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	public void deleteAllGames(ActionEvent e) {
 		

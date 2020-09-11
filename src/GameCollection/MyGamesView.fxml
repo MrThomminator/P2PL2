@@ -48,7 +48,7 @@
          <contextMenu>
             <ContextMenu>
               <items>
-                <MenuItem fx:id="newGameCMI" mnemonicParsing="false" text="Neues Spiel anlegen" />
+                <MenuItem fx:id="newGameCMI" onAction="#goToNewGame" mnemonicParsing="false" text="Neues Spiel anlegen" />
                   <MenuItem fx:id="deleteGameCMI" mnemonicParsing="false" onAction="#removeSelectedItem" text="Spiel löschen" />
                   <MenuItem fx:id="modifyGameCMI" mnemonicParsing="false" onAction="#goToModifyGame" text="Spiel bearbeiten" />
               </items>

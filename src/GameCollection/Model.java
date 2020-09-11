@@ -48,6 +48,10 @@ public class Model {
 	}
 
 	
+	public void modifyGame() {
+		
+	}
+	
 	public void deleteAllGames() {
 		games.clear();
 		save();
