@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 
 <Pane fx:id="myGamesViewPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameCollection.MyGamesController">
    <children>
@@ -18,11 +19,31 @@
       </MenuBar>
       <TableView layoutY="39.0" prefHeight="313.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="titleColumn" prefWidth="137.0" text="Titel" />
-          <TableColumn fx:id="genreColumn" minWidth="0.0" prefWidth="134.0" text="Genre" />
-            <TableColumn fx:id="releaseColumn" prefWidth="76.0" text="Jahr" />
-            <TableColumn fx:id="systemColumn" prefWidth="125.0" text="System" />
-            <TableColumn fx:id="isCompletedColumn" prefWidth="126.0" text="durchgespielt" />
+          <TableColumn fx:id="titleColumn" prefWidth="137.0" text="Titel">
+          		<cellValueFactory>
+						<PropertyValueFactory property="title" />
+				</cellValueFactory>          
+         </TableColumn>
+          <TableColumn fx:id="genreColumn" minWidth="0.0" prefWidth="134.0" text="Genre">
+            <cellValueFactory>
+						<PropertyValueFactory property="genre" />
+			</cellValueFactory>    
+          </TableColumn>
+            <TableColumn fx:id="releaseColumn" prefWidth="76.0" text="Jahr">
+            <cellValueFactory>
+						<PropertyValueFactory property="releasedate" />
+				</cellValueFactory>    
+            </TableColumn>
+            <TableColumn fx:id="systemColumn" prefWidth="125.0" text="System">
+            <cellValueFactory>
+						<PropertyValueFactory property="system" />
+				</cellValueFactory>    
+            </TableColumn>
+            <TableColumn fx:id="isCompletedColumn" prefWidth="126.0" text="durchgespielt">
+            <cellValueFactory>
+						<PropertyValueFactory property="isPlayed" />
+				</cellValueFactory>    
+            </TableColumn>
         </columns>
          <contextMenu>
             <ContextMenu>
