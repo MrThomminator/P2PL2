@@ -13,6 +13,7 @@ public class Game implements Serializable {
 	private Genre genre;
 	private int releasedate;
 	private boolean isCompleted;
+	private String system;
 
 	/*
 	 * Methoden
