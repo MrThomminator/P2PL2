@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Game implements Serializable {
 
 	/*
-	 * Attribute 
+	 * Attribute
 	 */
 
 	private static final long serialVersionUID = 1L;
