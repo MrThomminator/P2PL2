@@ -1,5 +1,8 @@
 package GameCollection;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Model {
@@ -10,7 +13,10 @@ public class Model {
 	private Model() {
 
 	}
-
+	
+	
+	File file = new File("list.txt");
+	
 //	public void createGame(String title, Genre genre, int releasedate, boolean isCompleted) {
 //		games.add(new Game(title, genre, releasedate, isCompleted));
 //		for(Game game : games) {
@@ -58,7 +64,15 @@ public class Model {
 	}
 	
 	public void save(){
-		
+		if(file != null) {
+			try(FileOutputStream fos = new FileOutputStream(file); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+				oos.writeObject(games);
+			} catch (Exception e) {
+				System.err.println("Methode \"saveFile\" im Model hat nicht ");
+			}
+		}else {
+			System.out.println("kein File vorhanden");
+		}
 	}
 	
 	
